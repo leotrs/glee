@@ -88,7 +88,7 @@ def eigenmaps(graph, dim, method='glee', return_vals=False):
 def main(infile, outfile, dim, method):
     """Load an edge list and compute its GLEE to disk."""
     graph = nx.read_edgelist(infile)
-    emb = eigenmaps(graph, method, dim)
+    emb = eigenmaps(graph, dim, method)
     np.save(outfile, emb)
 
 
@@ -104,4 +104,4 @@ if __name__ == '__main__':
     parser.add_argument('--method', default='glee', type=str,
                         help='"glee" or "eigen"')
     args = parser.parse_args()
-    main(args.input, args.output, args.dim, args.method)
+    main(args.input, args.output, int(args.dim), args.method)
