@@ -14,7 +14,7 @@ scipy and networkX.
 
 This library can be used in two different ways. It can be directly imported
 for use within your Python application using `import glee`. For an example
-of this kind of usage see `Example.ipynb`.
+of this kind of usage see `GLEE example usage.ipynb`.
 
 It can also be used from the command line by executing `python glee.py
 <args>`. Running `python glee.py -h` will show an explanation of the
