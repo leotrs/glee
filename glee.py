@@ -85,9 +85,13 @@ def eigenmaps(graph, dim, method='glee', return_vals=False):
     return (vecs, vals) if return_vals else vecs
 
 
-def main(infile, outfile, dim, method):
+def main(infile, outfile, dim, method, nodetype):
     """Load an edge list and compute its GLEE to disk."""
-    graph = nx.read_edgelist(infile)
+    try:
+        nodetype = {'int': int, 'str': str}[nodetype]
+    except KeyError as exc:
+        raise KeyError('Supported node label types are int or str.')
+    graph = nx.read_edgelist(infile, nodetype=nodetype)
     emb = eigenmaps(graph, dim, method)
     np.save(outfile, emb)
 
@@ -103,5 +107,8 @@ if __name__ == '__main__':
                         help='dimension of embedding (default 128)')
     parser.add_argument('--method', default='glee', type=str,
                         help='"glee" or "eigen"')
+    parser.add_argument('--nodetype', default='int', type=str,
+                        help='type of node labels in input file')
     args = parser.parse_args()
-    main(args.input, args.output, int(args.dim), args.method)
+    main(args.input, args.output, int(args.dim), args.method,
+         args.nodetype)
