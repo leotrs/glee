@@ -1,7 +1,14 @@
 # GLEE: Geometric Laplacian Eigenmap Embedding
 
 GLEE is a graph embedding technique based on the spectral and geometric
-properties of the Laplacian matrix of an undirected graph.
+properties of the Laplacian matrix of an undirected graph. For more details
+on the theoretical framework behind GLEE, see
+
+> *Leo Torres*, K. S. Chan, and T. Eliassi-Rad. GLEE: Geometric Laplacian
+> Eigenmap Embedding. Journal of Complex Networks, Volume 8, Issue 2, April
+> 2020, cnaa007.
+
+If you use the code in this repository, please cite the above article.
 
 
 ## Installation
